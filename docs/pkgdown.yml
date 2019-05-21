@@ -5,7 +5,7 @@ articles:
   REndo-introduction: REndo-introduction.html
 
 news:
-  one_page: false
+  one_page: False
 
 template:
   params:
