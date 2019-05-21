@@ -8,3 +8,8 @@
 man-roxygen
 cran-comments.md
 ^appveyor\.yml$
+^_pkgdown\.yml$
+^docs$
+^pkgdown$
+^\.travis\.yml$
+^tic\.R$
