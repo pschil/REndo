@@ -4,3 +4,9 @@ pkgdown_sha: ~
 articles:
   REndo-introduction: REndo-introduction.html
 
+news:
+  one_page: false
+
+template:
+  params:
+    ganalytics: UA-31477052-1
