@@ -33,6 +33,8 @@ sudo: false
 dist: trusty
 cache: packages
 latex: false
+warnings_are_errors: false
+
 
 #env
 env:
