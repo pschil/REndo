@@ -53,9 +53,9 @@ jobs:
 
 
   # job for R CMD checks on win, mac, ubuntu
-  R-CMD-check-win-mac-ubuntu-R362:
+  R-CMD-check:
     runs-on: ${{ matrix.config.os }}
-    name: R-CMD-check-win-mac-ubuntu-R362-${{ matrix.config.os }} (${{ matrix.config.r }})
+    name: R-CMD-check-${{ matrix.config.os }} (${{ matrix.config.r }})
 
     strategy:
       fail-fast: false
