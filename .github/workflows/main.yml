@@ -40,7 +40,7 @@ jobs:
         run: | 
           library(testthat)
           library(devtools)
-          capture.output(devtools::test(reporter=RstudioReporter), file = "tests")
+          capture.output(devtools::test(reporter=RstudioReporter), file = "test_output.txt")
         shell: Rscript {0}
         
       - name: Upload test results
