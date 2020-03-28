@@ -37,5 +37,7 @@ jobs:
       - name: Run tests
         run: | 
           print(rownames(installed.packages()))
+          library(AER)
+          library(devtools)
           devtools::test()
         shell: Rscript {0}
