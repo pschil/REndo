@@ -1,0 +1,39 @@
+# Run this workflow whenever there is a push or pull request to the repository
+on: [push, pull_request]
+
+# Name of the workflow
+name: check-and-test-pull-request
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # job for test on ubunutu only
+  tests-ubuntu-latest-R-3-6-3:
+    runs-on: ubuntu-latest
+    env:
+      R_REMOTES_NO_ERRORS_FROM_WARNINGS: true
+      # to install binaries on ubuntu
+      RSPM: "https://demo.rstudiopm.com/all/__linux__/xenial/latest"
+    steps:
+      - uses: actions/checkout@v2
+      - uses: r-lib/actions/setup-r@master
+        with:
+          r-version: 3.6.3
+      - name: Install system dependencies
+        env:
+          RHUB_PLATFORM: linux-x86_64-ubuntu-gcc
+        run: |
+          Rscript -e "install.packages(c('remotes', 'rcmdcheck', 'devtools', 'testthat'))"
+          Rscript -e "remotes::install_github('r-hub/sysreqs')"
+          sysreqs=$(Rscript -e "cat(sysreqs::sysreq_commands('DESCRIPTION'))")
+          sudo -s eval "$sysreqs"
+      - name: Install package dependencies
+        # RcppGSL and stringi can currently not load or link when installed from RSPM,
+        #   therefore install from cran (source)
+        run: |
+          remotes::install_deps(dependencies = TRUE)
+          remotes::install_cran("RcppGSL")
+          remotes::install_cran("stringi")
+        shell: Rscript {0}
+      - name: Run tests
+        run: devtools::test()
+        shell: Rscript {0}
