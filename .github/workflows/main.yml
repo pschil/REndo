@@ -32,7 +32,6 @@ jobs:
         run: |
           remotes::install_deps(dependencies = TRUE)
           print(getOption("repos"))
-          remotes::install_cran("AER", force=T, repos = "https://cran.rstudio.com/")
           remotes::install_cran("car", force=T, repos = "https://cran.rstudio.com/")
           remotes::install_cran("testthat", force=T, repos = "https://cran.rstudio.com/")
           remotes::install_cran("devtools", force=T, repos = "https://cran.rstudio.com/")
