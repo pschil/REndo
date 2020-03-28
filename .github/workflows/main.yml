@@ -44,7 +44,7 @@ jobs:
         shell: Rscript {0}
         
       - name: Upload test results
-        uses: actions/upload-artifact@development
+        uses: actions/upload-artifact@master
         with:
           name: test-results
           path: tests
