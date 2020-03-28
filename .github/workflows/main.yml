@@ -33,26 +33,26 @@ jobs:
         run: |
           remotes::install_deps(dependencies = TRUE)
           print(getOption("repos"))
-          remotes::install_cran("testthat", force=T, repos = "https://cran.rstudio.com/")
-          remotes::install_cran("devtools", force=T, repos = "https://cran.rstudio.com/")
+          remotes::install_cran("testthat", repos = "https://cran.rstudio.com/")
+          remotes::install_cran("devtools", repos = "https://cran.rstudio.com/")
+          remotes::install_cran("covr", repos = "https://cran.rstudio.com/")
         shell: Rscript {0}
         
       - name: Run tests
         run: | 
           library(testthat)
           library(devtools)
-          capture.output(devtools::test(reporter=RstudioReporter), file = "test_output.txt")
+          devtools::test(reporter=RstudioReporter)
         shell: Rscript {0}
-        
-      - name: Upload test results
-        uses: actions/upload-artifact@master
-        with:
-          name: test-results
-          path: tests
+      
+      - name: Test coverage, if tests succeeded
+        if: success()
+        # run: covr::codecov()
+        run: covr::package_coverage(type = "tests", quiet = FALSE)
+        shell: Rscript {0}
 
 
-
-
+  # job for R CMD checks on win, mac, ubuntu
   R-CMD-check-win-mac-ubuntu-R362:
     runs-on: ${{ matrix.config.os }}
     name: ${{ matrix.config.os }} (${{ matrix.config.r }})
@@ -115,3 +115,5 @@ jobs:
           with:
             name: R-CMD-check-results-${{ runner.os }}-r${{ matrix.config.r }}
             path: check
+
+  
