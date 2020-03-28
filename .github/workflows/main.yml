@@ -1,5 +1,6 @@
 # Run this workflow whenever there is a push or pull request to the repository
-on: [push, pull_request]
+on: pull_request #default to types [opened, synchronize, reopened] # [push, pull_request]
+
 
 # Name of the workflow
 name: check-and-test-pull-request
@@ -101,6 +102,7 @@ jobs:
           run: |
             remotes::install_deps(dependencies = TRUE)
             remotes::install_cran("rcmdcheck")
+            if(file.exists('depends.Rds')) {file.remove('depends.Rds')}
           shell: Rscript {0}
 
         - name: Check
