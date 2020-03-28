@@ -35,5 +35,7 @@ jobs:
           remotes::install_cran("devtools")
         shell: Rscript {0}
       - name: Run tests
-        run: devtools::test()
+        run: | 
+          print(rownames(installed.packages()))
+          devtools::test()
         shell: Rscript {0}
