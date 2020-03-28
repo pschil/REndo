@@ -35,10 +35,16 @@ jobs:
           remotes::install_cran("testthat", force=T, repos = "https://cran.rstudio.com/")
           remotes::install_cran("devtools", force=T, repos = "https://cran.rstudio.com/")
         shell: Rscript {0}
+        
       - name: Run tests
         run: | 
-          print(rownames(installed.packages()))
-          library(AER)
+          library(testthat)
           library(devtools)
-          devtools::test()
+          capture.output(devtools::test(reporter=RstudioReporter), file = "tests")
         shell: Rscript {0}
+        
+      - name: Upload test results
+        uses: actions/upload-artifact@development
+        with:
+          name: test-results
+          path: tests
