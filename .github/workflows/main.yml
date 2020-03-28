@@ -8,7 +8,7 @@ name: check-and-test-pull-request
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # job for test on ubunutu only
-  tests-ubuntu-16-04-R-3-6:
+  tests-and-coverage-ubuntu-16-04-R-3-6:
     runs-on: ubuntu-16.04
     env:
       R_REMOTES_NO_ERRORS_FROM_WARNINGS: true
@@ -97,6 +97,10 @@ jobs:
             Rscript -e "remotes::install_github('r-hub/sysreqs')"
             sysreqs=$(Rscript -e "cat(sysreqs::sysreq_commands('DESCRIPTION'))")
             sudo -s eval "$sysreqs"
+    
+        - name: Install qpdf for ubuntu 
+          if: runner.os == 'Linux'
+          run: sudo apt-get install -y qpdf
 
         - name: Install dependencies, some from cran incl RcppGSL and stringi
           run: |
