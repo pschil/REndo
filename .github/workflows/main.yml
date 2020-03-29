@@ -72,7 +72,7 @@ jobs:
         - uses: r-lib/actions/setup-r@master
           with:
             r-version: ${{ matrix.config.r }}
-            rtools-version: 40
+            rtools-version: '40'
 
         - name: Query dependencies
           run: |
