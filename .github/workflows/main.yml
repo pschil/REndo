@@ -89,6 +89,19 @@ jobs:
             key: ${{ runner.os }}-r-${{ matrix.config.r }}-${{ hashFiles('depends.Rds') }}
             restore-keys: ${{ runner.os }}-r-${{ matrix.config.r }}-
 
+        - name: Install Rtools4.0 for windows
+          if: runner.os == 'Windows'
+          run: | 
+            install.packages("installr", repos = "https://cran.rstudio.com/")
+            #print(install.Rtools(choose_version = FALSE, GUI = FALSE))
+            print(install.URL(exe_URL = 'https://cran.r-project.org/bin/windows/testing/rtools40-x86_64.exe', ))
+            # download.file(url = "https://cran.r-project.org/bin/windows/testing/rtools40-x86_64.exe", destfile = "rtools40.exe")
+            # Rtools4 is still beta and does not overwrite PATH
+            Sys.setenv(PATH = paste("C:/rtools40/mingw$(WIN)/bin", Sys.getenv("PATH"), sep=";"))
+            Sys.setenv(BINPREF = "C:/rtools40/mingw$(WIN)/bin/")
+          shell: Rscript {0}
+          
+
         - name: Install system dependencies
           if: runner.os == 'Linux'
           env:
