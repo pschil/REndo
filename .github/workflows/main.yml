@@ -97,15 +97,20 @@ jobs:
             Rscript -e "remotes::install_github('r-hub/sysreqs')"
             sysreqs=$(Rscript -e "cat(sysreqs::sysreq_commands('DESCRIPTION'))")
             sudo -s eval "$sysreqs"
+            sudo apt-get install -y qpdf
     
-        - name: Install qpdf for ubuntu 
-          if: runner.os == 'Linux'
-          run: sudo apt-get install -y qpdf
-
+        - name: Install gsl for mac
+          if: runner.os == 'macOS'
+          run: |
+            brew install gsl
+      
         - name: Install dependencies, some from cran incl RcppGSL and stringi
           run: |
             remotes::install_deps(dependencies = TRUE)
             remotes::install_cran("rcmdcheck")
+            remotes::install_cran("RcppGSL")
+            print(RcppGSL::LdFlags())
+            print(RcppGSL::CFlags())
             if(file.exists('depends.Rds')) {file.remove('depends.Rds')}
           shell: Rscript {0}
 
