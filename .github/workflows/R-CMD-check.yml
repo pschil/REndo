@@ -23,7 +23,7 @@ jobs:
         - uses: r-lib/actions/setup-r@master
           with:
             r-version: ${{ matrix.config.r }}
-            rtools-version: '35'
+            rtools-version: '../testing/rtools40-x86_64.exe'
 
         - name: Query dependencies
           run: |
