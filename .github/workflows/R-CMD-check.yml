@@ -1,4 +1,4 @@
-name: R-CMD-check
+name: R-CMD-checks
 on: [push, pull_request]
 jobs:
   # job for R CMD checks on win, mac, ubuntu
@@ -23,7 +23,7 @@ jobs:
         - uses: r-lib/actions/setup-r@master
           with:
             r-version: ${{ matrix.config.r }}
-            rtools-version: '40'
+            rtools-version: '35'
 
         - name: Query dependencies
           run: |
