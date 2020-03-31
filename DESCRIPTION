@@ -35,7 +35,8 @@ Imports:
 Suggests:
     testthat,
     covr,
-    R.rsp
+    R.rsp, 
+    bookdown
 Encoding: UTF-8
 RoxygenNote: 7.0.2
 VignetteBuilder: R.rsp
