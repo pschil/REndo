@@ -222,7 +222,7 @@ in a frequentist approach identification issues appear.</p>
 the endogenous regressor P<sub>t</sub>.
 Specifically, the endogenous regressor should have a non-normal distribution while the unobserved instruments, \(Z\), should be discrete and have at least two groups with different means Ebbes, Wedel, and Böckenholt (2009).
 A continuous distribution for the instruments leads to an unidentified model, while a normal distribution of the endogenous regressor gives rise to inefficient estimates.</p>
-<p>Additional parameters used during model fitting and printed in <code>summary</code> are:</p><dl'>
+<p>Additional parameters used during model fitting and printed in <code>summary</code> are:</p><dl>
 <dt>pi1</dt><dd><p>The instrumental variables \(Z\) are assumed to be divided into two groups. <code>pi1</code> represents the estimated group mean of the first group.</p></dd>
 <dt>pi2</dt><dd><p>The estimated group mean of the second group of the instrumental variables \(Z\).</p></dd>
 <dt>theta5</dt><dd><p>The probability of being in the first group of the instruments.</p></dd>
@@ -400,7 +400,7 @@ Quantitative Marketing and Economics, 3:365--392.</p>
 #&gt;         (1 - pt) * exp(log.pdf2 - max.AB)))
 #&gt;     return(-1 * logLL.lse)
 #&gt; }
-#&gt; &lt;bytecode: 0x7fc8c0723668&gt;
+#&gt; &lt;bytecode: 0x7f8b24fa2410&gt;
 #&gt; &lt;environment: namespace:REndo&gt;
 #&gt; 
 #&gt; $have.bounds
@@ -1137,7 +1137,7 @@ Quantitative Marketing and Economics, 3:365--392.</p>
 #&gt; 
 #&gt; $xtimes
 #&gt; user.self 
-#&gt;     0.961 
+#&gt;      0.95 
 #&gt; 
 #&gt; Assemble the answers</div><div class='input'>
 <span class='co'># use method L-BFGS-B instead of Nelder-Mead and print report every 50 iterations</span>
@@ -1242,7 +1242,7 @@ Quantitative Marketing and Economics, 3:365--392.</p>
 #&gt;         (1 - pt) * exp(log.pdf2 - max.AB)))
 #&gt;     return(-1 * logLL.lse)
 #&gt; }
-#&gt; &lt;bytecode: 0x7fc8c0723668&gt;
+#&gt; &lt;bytecode: 0x7f8b24fa2410&gt;
 #&gt; &lt;environment: namespace:REndo&gt;
 #&gt; 
 #&gt; $have.bounds
@@ -1304,7 +1304,7 @@ Quantitative Marketing and Economics, 3:365--392.</p>
 #&gt; 
 #&gt; $xtimes
 #&gt; user.self 
-#&gt;     0.378 
+#&gt;     0.375 
 #&gt; 
 #&gt; Assemble the answers</div><div class='input'>
 <span class='co'># read out all coefficients, incl auxiliary coefs</span>
@@ -1329,7 +1329,7 @@ Quantitative Marketing and Economics, 3:365--392.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.0.9000.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.9000.</p>
 </div>
 
       </footer>
