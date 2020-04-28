@@ -1,8 +1,8 @@
-# CHANGES IN REndo 2.3.1
+# REndo 2.3.1
 * None. Version bump in order to resubmit to CRAN after package was archived.
 
 
-# CHANGES IN REndo 2.3.0
+# REndo 2.3.0
 
 ## SIGNIFICANT USER-VISIBLE CHANGES
 * Add support for predictions through method `predict` for every model
@@ -13,7 +13,7 @@
 
 
 
-# CHANGES IN REndo 2.2.1
+# REndo 2.2.1
 
 ## SIGNIFICANT USER-VISIBLE CHANGES
 * To tweak the lmer model fit in `multilevelIV` to their linking, users can supply a parameter `lmer.control`
@@ -28,7 +28,7 @@
 
 
 
-# CHANGES IN REndo 2.2.0
+# REndo 2.2.0
 
 ## SIGNIFICANT USER-VISIBLE CHANGES
 * The augmented OLS method in `copulaCorrection` also bootstraps parameter estimates
@@ -48,7 +48,7 @@
 
 
 
-# CHANGES IN REndo 2.1.0
+# REndo 2.1.0
 
 ## SIGNIFICANT USER-VISIBLE CHANGES
 * The reworked method `multilevelIV` and accompanying data was added back to the package
@@ -67,7 +67,7 @@
 
 
 
-# CHANGES IN REndo 2.0.0
+# REndo 2.0.0
 
 ## SIGNIFICANT USER-VISIBLE CHANGES
 * Remodeled all methods' user-interface
