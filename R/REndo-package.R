@@ -17,6 +17,7 @@
 #' \item{\code{multilevelIV()}}{multilevel GMM method proposed by Kim and Frees (2007)}
 #' }
 #'
+#'
 #' \strong{Differences between current (2.0.0) and previous version of REndo}
 #'
 #' Note that with version 2.0.0 sweeping changes were which greatly improve functionality but break backwards compatibility.
